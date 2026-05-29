@@ -303,8 +303,11 @@
       var art = hero.querySelector('.lp-hero-art');
 
       if (kicker) {
-        kicker.textContent =
-          lp.kicker || lp.level + ' ' + lp.subject.replace(lp.level, '').trim();
+        var kickerText = lp.kicker || lp.level + ' ' + lp.subject.replace(lp.level, '').trim();
+        var parts = kickerText.split('·').map(function (s) { return s.trim(); });
+        kicker.innerHTML = parts.map(function (part) {
+          return '<span>' + escapeHtml(part) + '</span>';
+        }).join('<span>·</span>');
       }
       if (h1 && lp.h1) h1.textContent = lp.h1;
       if (lede && lp.subheading) lede.textContent = lp.subheading;
@@ -317,12 +320,13 @@
           .join('');
       }
       if (art && !art.querySelector('.lp-hero-metrics')) {
+        var subjectName = lp.subject ? lp.subject.replace(/^(O\/A Level\s+|O Level\s+|A Level\s+)/i, '') : 'Tutoring';
         art.insertAdjacentHTML(
           'afterbegin',
           '<div class="lp-hero-metrics">' +
-            '<span>' + escapeHtml(lp.level || 'CAIE') + '</span>' +
-            '<span>' + escapeHtml(lp.area || 'DHA & Clifton') + '</span>' +
-            '<span>Exam-led</span>' +
+            '<span>O Levels</span>' +
+            '<span>A Levels</span>' +
+            '<span>' + escapeHtml(subjectName) + '</span>' +
           '</div>'
         );
       }
@@ -804,6 +808,10 @@
     var summaryEl = document.getElementById('matcherSummary');
     var submitBtn = document.getElementById('matcherSubmit');
 
+    matcherCard.querySelectorAll('.chip').forEach(function (chip) {
+      chip.setAttribute('aria-pressed', chip.classList.contains('active') ? 'true' : 'false');
+    });
+
     function updateTicket() {
       var level = selected.level;
       var subject = selected.subject;
@@ -829,7 +837,7 @@
 
       var text = 'I am looking for a premium ' + level + ' ' + subjectStr + ' tutor for ' + modeStr + '.';
       if (summaryEl) {
-        summaryEl.innerHTML = 'I am looking for a premium <strong style="color: #22C55E; font-weight: 800;">' + level + '</strong> <strong style="color: #22C55E; font-weight: 800;">' + subjectStr + '</strong> tutor for <strong style="color: #22C55E; font-weight: 800;">' + modeStr + '</strong>.';
+        summaryEl.innerHTML = 'I am looking for a premium <strong>' + level + '</strong> <strong>' + subjectStr + '</strong> tutor for <strong>' + modeStr + '</strong>.';
       }
 
       var prefill = "Hi! " + text + " Please recommend the right checked expert tutor.";
@@ -843,25 +851,13 @@
         var group = chip.parentElement.getAttribute('data-group');
         if (!group) return;
 
-        if (group === 'subject') {
-          chip.classList.toggle('active');
-          var activeChips = chip.parentElement.querySelectorAll('.chip.active');
-          if (activeChips.length === 0) {
-            chip.classList.add('active');
-            activeChips = [chip];
-          }
-          var vals = [];
-          activeChips.forEach(function (c) {
-            vals.push(c.getAttribute('data-value'));
-          });
-          selected.subject = vals;
-        } else {
-          chip.parentElement.querySelectorAll('.chip').forEach(function (c) {
-            c.classList.remove('active');
-          });
-          chip.classList.add('active');
-          selected[group] = chip.getAttribute('data-value');
-        }
+        chip.parentElement.querySelectorAll('.chip').forEach(function (c) {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+        selected[group] = group === 'subject' ? [chip.getAttribute('data-value')] : chip.getAttribute('data-value');
         updateTicket();
       });
     });

@@ -115,7 +115,7 @@ window.TUTORIKS = {
 
   landingPages: {
     'physics': {
-      kicker: 'O/A Level Physics · DHA & Clifton',
+      kicker: 'CAIE · IGCSE · GCSE',
       h1: 'O/A Level Physics Tutor',
       subheading:
         'Concept clarity, exam technique, and calm home support for families.',
@@ -182,7 +182,7 @@ window.TUTORIKS = {
       ]
     },
     'chemistry': {
-      kicker: 'O/A Level Chemistry · DHA & Clifton',
+      kicker: 'CAIE · IGCSE · GCSE',
       h1: 'O/A Level Chemistry Tutor',
       subheading:
         'Organic, physical, and inorganic Chemistry taught with CAIE precision.',
@@ -249,7 +249,7 @@ window.TUTORIKS = {
       ]
     },
     'mathematics': {
-      kicker: 'O/A Level Maths · DHA & Clifton',
+      kicker: 'CAIE · IGCSE · GCSE',
       h1: 'O/A Level Maths Tutor',
       subheading:
         'Clear methods, exam practice, and confidence without the panic.',
@@ -316,7 +316,7 @@ window.TUTORIKS = {
       ]
     },
     'cs': {
-      kicker: 'O/A Level Computer Science · DHA & Clifton',
+      kicker: 'CAIE · IGCSE · GCSE',
       h1: 'O/A Level Computer Science Tutor',
       subheading:
         '9618 theory, algorithms, and coding support with a clean plan.',
