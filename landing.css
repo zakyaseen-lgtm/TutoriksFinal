@@ -189,6 +189,7 @@ body.lp::before {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  justify-content: center;
 }
 
 .trust-bullets li {
@@ -801,6 +802,12 @@ body.lp .t-card::before {
   justify-content: center;
 }
 
+.lp-footer .hero-actions .btn-ghost {
+  padding: 11px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-weight: 600;
+}
+
 .lp-sticky-wa {
   position: fixed;
   right: max(18px, env(safe-area-inset-right));
@@ -861,8 +868,7 @@ body.lp .t-card::before {
     font-size: 0.8rem;
   }
   .lp-header .nav-phone-pill {
-    padding: 8px 14px;
-    font-size: 0.82rem;
+    display: none;
   }
 
   /* ── LP HERO ──────────────────────────────── */

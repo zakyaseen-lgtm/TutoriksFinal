@@ -333,7 +333,7 @@
       var formTitle = form.querySelector('h2');
       var submit = form.querySelector('button[type="submit"]');
       if (formTitle) formTitle.textContent = lp.formTitle || 'Match me with a tutor';
-      if (submit) submit.textContent = lp.formCta || 'Request my tutor match';
+      if (submit) submit.textContent = lp.formCta || 'Match';
 
       var matchSection = form.closest('.lp-match');
       if (matchSection) {
