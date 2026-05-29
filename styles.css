@@ -397,10 +397,6 @@ h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.125rem; }
   .site-header nav {
     position: relative;
   }
-
-  .site-footer [data-phone] {
-    display: none;
-  }
 }
 
 .nav-toggle {
@@ -3340,8 +3336,10 @@ h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.125rem; }
 }
 
 #matcherSummary strong {
-  color: var(--wa);
+  color: var(--teal);
   font-weight: 800;
+  border-bottom: 1.5px dashed rgba(8, 117, 111, 0.35);
+  padding-bottom: 1px;
 }
 
 /* Dashed separator */
@@ -4118,7 +4116,6 @@ h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.125rem; }
 
   /* ── FOOTER ─────────────────────────────────── */
   .footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-  .site-footer [data-phone] { display: none; }
 
   /* ── DISABLE HOVER TRANSFORMS ON TOUCH ──────── */
   .card:hover,
@@ -4459,8 +4456,6 @@ body.lp::before {
   box-shadow: 0 18px 46px rgba(7, 24, 42, 0.08);
 }
 
-.nav-phone-pill,
-.lp-header .nav-phone-pill,
 .btn-pill-white,
 .btn-whatsapp,
 .btn-wa-green,
@@ -4474,8 +4469,6 @@ body.lp::before {
   box-shadow: 0 14px 30px rgba(18, 132, 90, 0.22);
 }
 
-.nav-phone-pill:hover,
-.lp-header .nav-phone-pill:hover,
 .btn-pill-white:hover,
 .btn-whatsapp:hover,
 .btn-wa-green:hover,

@@ -801,9 +801,27 @@
 
     var selected = {
       level: 'O Level',
-      subject: ['Physics'],
+      subject: [],
       location: 'DHA'
     };
+
+    // Find initial values from active chips in DOM
+    var initialLevelEl = matcherCard.querySelector('[data-group="level"] .chip.active');
+    if (initialLevelEl) {
+      selected.level = initialLevelEl.getAttribute('data-value');
+    }
+
+    matcherCard.querySelectorAll('[data-group="subject"] .chip.active').forEach(function (chip) {
+      selected.subject.push(chip.getAttribute('data-value'));
+    });
+    if (selected.subject.length === 0) {
+      selected.subject.push('Physics');
+    }
+
+    var initialLocationEl = matcherCard.querySelector('[data-group="location"] .chip.active');
+    if (initialLocationEl) {
+      selected.location = initialLocationEl.getAttribute('data-value');
+    }
 
     var summaryEl = document.getElementById('matcherSummary');
     var submitBtn = document.getElementById('matcherSubmit');
@@ -824,7 +842,9 @@
 
       var subjectStr = '';
       if (Array.isArray(subject)) {
-        if (subject.length === 1) {
+        if (subject.length === 0) {
+          subjectStr = '';
+        } else if (subject.length === 1) {
           subjectStr = subject[0];
         } else if (subject.length === 2) {
           subjectStr = subject[0] + ' & ' + subject[1];
@@ -851,13 +871,36 @@
         var group = chip.parentElement.getAttribute('data-group');
         if (!group) return;
 
-        chip.parentElement.querySelectorAll('.chip').forEach(function (c) {
-          c.classList.remove('active');
-          c.setAttribute('aria-pressed', 'false');
-        });
-        chip.classList.add('active');
-        chip.setAttribute('aria-pressed', 'true');
-        selected[group] = group === 'subject' ? [chip.getAttribute('data-value')] : chip.getAttribute('data-value');
+        if (group === 'subject') {
+          var val = chip.getAttribute('data-value');
+          var isActive = chip.classList.contains('active');
+          if (isActive) {
+            // Only allow toggling off if there is more than 1 subject selected
+            if (selected.subject.length > 1) {
+              chip.classList.remove('active');
+              chip.setAttribute('aria-pressed', 'false');
+              selected.subject = selected.subject.filter(function (item) {
+                return item !== val;
+              });
+            }
+          } else {
+            chip.classList.add('active');
+            chip.setAttribute('aria-pressed', 'true');
+            if (selected.subject.indexOf(val) === -1) {
+              selected.subject.push(val);
+            }
+          }
+        } else {
+          // Level or Location (single select)
+          chip.parentElement.querySelectorAll('.chip').forEach(function (c) {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          chip.classList.add('active');
+          chip.setAttribute('aria-pressed', 'true');
+          selected[group] = chip.getAttribute('data-value');
+        }
+
         updateTicket();
       });
     });
@@ -898,6 +941,7 @@
     var leadForm = document.getElementById('leadForm');
     upgradeLeadFormOptions(leadForm, lp);
     initLeadForm(leadForm, lp);
+    initInteractiveMatchTicket();
 
     injectSchema(
       {
