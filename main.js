@@ -942,6 +942,7 @@
     upgradeLeadFormOptions(leadForm, lp);
     initLeadForm(leadForm, lp);
     initInteractiveMatchTicket();
+    initHeader();
 
     injectSchema(
       {

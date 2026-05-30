@@ -47,42 +47,97 @@ body.lp::before {
   color: var(--ink);
 }
 
-.lp-header .btn {
-  min-height: 44px;
-  padding: 11px 19px;
-}
-
+/* ── LP HEADER – base (mobile-first, all screens) ─────────────────── */
 .lp-header .nav-phone-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
+  gap: 6px;
+  padding: 8px 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #081F33 0%, #0F2D44 100%);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
   text-decoration: none;
-  box-shadow: 0 6px 18px rgba(8, 31, 51, 0.22);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
   transition: all 0.2s ease;
   white-space: nowrap;
-  margin-left: auto;
+  min-height: 36px;
 }
 .lp-header .nav-phone-pill:hover {
-  background: linear-gradient(135deg, #0F2D44 0%, #081F33 100%);
-  box-shadow: 0 8px 24px rgba(8, 31, 51, 0.30);
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
   transform: translateY(-1px);
 }
 .lp-header .nav-phone-pill svg {
-  width: 16px;
-  height: 16px;
-  fill: #fff;
+  width: 13px;
+  height: 13px;
+  fill: #ffffff !important;
   flex-shrink: 0;
 }
 
+/* Nav links hidden by default (mobile); shown on desktop below */
 .lp-header .nav-links {
   display: none;
+}
+.lp-header .nav-links.open {
+  display: flex !important;
+}
+
+/* ── LP HEADER – desktop only (≥ 769px): mirror main page exactly ─── */
+@media (min-width: 769px) {
+  .lp-header {
+    padding: 10px 12px 10px 18px;
+    min-height: 74px;
+    gap: 16px;
+  }
+
+  /* Show nav links exactly like the main page — centered via auto margins */
+  .lp-header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    /* auto margins on both sides → true center between logo and nav-right */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lp-header .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    padding: 9px 14px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lp-header .nav-links a:hover {
+    color: var(--warm-accent-deep);
+    background: rgba(232, 85, 32, 0.12);
+  }
+
+  /* nav-right: no margin-left:auto — nav-links auto margins handle centering */
+  .lp-header .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Phone pill: remove the mobile margin-left:auto since nav-right handles alignment */
+  .lp-header .nav-phone-pill {
+    margin-left: 0;
+  }
+
+
+
+  /* Hide hamburger toggle on desktop */
+  .lp-header .nav-toggle {
+    display: none;
+  }
 }
 
 .lp-hero,
@@ -169,10 +224,11 @@ body.lp::before {
 .lp-hero h1 {
   max-width: 13ch;
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 5vw, 4.9rem);
+  font-size: clamp(3rem, 5.2vw, 4.9rem);
+  font-weight: 800;
   text-transform: none;
   letter-spacing: 0;
-  line-height: 0.96;
+  line-height: 1.02;
   margin-bottom: 1rem;
   color: var(--ink);
 }
@@ -825,11 +881,7 @@ body.lp .t-card::before {
   font-weight: 600;
 }
 
-@media (max-width: 1100px) {
-  .lp-footer .hero-actions .btn-ghost {
-    display: none;
-  }
-}
+
 
 .lp-sticky-wa {
   position: fixed;
@@ -883,7 +935,7 @@ body.lp .t-card::before {
     gap: 16px;
     min-height: 58px;
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow: visible;
     background: rgba(248, 250, 252, 0.78);
     border-color: rgba(255, 255, 255, 0.4);
     border-radius: 999px;
@@ -933,8 +985,9 @@ body.lp .t-card::before {
   }
 
   .lp-hero h1 {
-    font-size: clamp(2.3rem, 10vw, 2.8rem);
-    line-height: 1.12;
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.05;
     width: 100%;
     max-width: 14ch;
     margin-bottom: 2rem;
@@ -1061,7 +1114,6 @@ body.lp .t-card::before {
   .lp-footer { padding: 4.5rem 0 4.5rem; }
   .lp-footer .hero-actions { flex-direction: column; align-items: stretch; }
   .lp-footer .hero-actions .btn { width: 100%; max-width: none; }
-  .lp-footer .hero-actions .btn-ghost { display: none; }
 
   .lp-sticky-wa { display: none; }
 
@@ -1215,8 +1267,6 @@ body.lp::before {
   box-shadow: 0 18px 46px rgba(7, 24, 42, 0.08);
 }
 
-.lp-header .nav-phone-pill,
-.lp-header .nav-phone-pill:hover,
 .lp-hero-copy > .btn,
 .lead-form .btn,
 .lead-form .btn:hover,
@@ -1227,24 +1277,12 @@ body.lp::before {
   box-shadow: 0 14px 30px rgba(18, 132, 90, 0.22);
 }
 
-.lp-header .nav-phone-pill:hover,
 .lp-hero-copy > .btn:hover,
 .lead-form .btn:hover,
 .lp-footer .btn-pill-white:hover,
 .lp-sticky-wa .btn:hover {
   background: var(--wa-hover);
   box-shadow: 0 18px 36px rgba(18, 132, 90, 0.28);
-}
-
-.lp-hero::before {
-  right: max(-3rem, -4vw);
-  top: 7.25rem;
-  width: clamp(8rem, 18vw, 16rem);
-  height: clamp(8rem, 18vw, 16rem);
-  border-radius: 999px;
-  background: var(--warm-accent);
-  opacity: 0.12;
-  transform: none;
 }
 
 .lp-kicker,
