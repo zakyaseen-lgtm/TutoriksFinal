@@ -9,7 +9,7 @@ window.TUTORIKS = {
   trialSessionPkr: 2500,
   trialIsFree: false,
   showUrgency: false,
-  urgencyText: 'Currently accepting O Level Physics students for September 2026',
+  urgencyText: 'Limited Cambridge tutoring availability for the coming term',
   waHome:
     "Hi, I'm interested in O/A Level tutoring for my child. Home in DHA or Clifton, or online.",
 
@@ -23,8 +23,8 @@ window.TUTORIKS = {
       a: null // filled by getFaqAnswer in main.js
     },
     {
-      q: "What if we're not satisfied with the tutor?",
-      a: 'We replace the tutor. No questions, no delay.'
+      q: "What if the tutor is not the right fit?",
+      a: 'We review the concern and arrange a more suitable tutor where needed.'
     },
     {
       q: 'Do sessions happen at our home?',
@@ -81,21 +81,21 @@ window.TUTORIKS = {
       area: 'DHA Phase 6',
       subject: 'O/A Level Physics',
       quote:
-        'Our son went from a D to a strong B in one term. The tutor knew the CAIE mark scheme inside out.'
+        'The tutor understood the CAIE mark scheme and helped our son move from a D to a strong B in one term.'
     },
     {
       name: 'Kamran',
       area: 'Clifton',
       subject: 'O/A Level Chemistry',
       quote:
-        'Finally someone who could explain organic mechanisms properly. Past-paper practice made the difference.'
+        'Organic mechanisms were finally explained as a system. The past-paper practice was focused and consistent.'
     },
     {
       name: 'Ayesha',
       area: 'Clifton',
       subject: 'O/A Level Maths',
       quote:
-        'Structured lessons at home, no wasted time. We saw improvement within the first month.'
+        'Structured home lessons, clear homework, and no wasted time. We saw improvement within the first month.'
     },
     {
       name: 'Bilal',
@@ -109,32 +109,32 @@ window.TUTORIKS = {
       area: 'DHA Phase 8',
       subject: 'O/A Level Physics',
       quote:
-        'Professional, punctual, and honest feedback after every session. Would recommend Tutoriks.'
+        'Professional, punctual, and clear feedback after every session.'
     }
   ],
 
   landingPages: {
     'physics': {
       kicker: 'Cambridge Curriculum · O/A Level',
-      h1: 'Structured __Physics__ support for Cambridge students.',
+      h1: 'Cambridge __Physics__ tutoring with structure.',
       subheading:
-        'Concept clarity, exam technique, and mark-scheme precision — from tutors who specialise in CAIE Physics.',
+        'Concept clarity, calculation method, and paper technique from tutors familiar with CAIE Physics expectations.',
       area: 'Karachi',
       subject: 'O/A Level Physics',
       level: 'O Level',
       cta: 'Talk to a Tutor',
-      formTitle: 'Match me with a Physics tutor',
-      formCta: 'Match',
-      bullets: ['Cambridge mark-scheme familiarity', 'Electricity, Mechanics, Waves, all papers covered', 'Parent update after every session'],
-      matchTitle: 'Recommendations based on subject fit, not availability.',
+      formTitle: 'Request a Physics tutor',
+      formCta: 'Request match',
+      bullets: ['Cambridge mark-scheme familiarity', 'Mechanics, electricity, waves, and practical skills', 'Parent update after every session'],
+      matchTitle: 'Matched for syllabus fit.',
       matchCopy:
-        'We assess syllabus stage, weak topics, school pace, and exam timeline before recommending a Physics tutor. The goal is structured support from someone who knows the paper.',
+        'We assess syllabus stage, weak topics, school pace, and exam timeline before recommending a Physics tutor. The aim is calm, structured support from someone who knows the paper.',
       signals: [
         'Topic-level assessment before the first lesson',
-        'Mark-scheme phrasing integrated into explanations',
+        'Mark-scheme phrasing built into explanations',
         'Past-paper practice once concepts are secure'
       ],
-      methodTitle: 'Concept to paper, step by step.',
+      methodTitle: 'From concept to paper.',
       methodIntro:
         'Physics improves when understanding, calculation, and exam technique are trained together.',
       method: [
@@ -151,7 +151,7 @@ window.TUTORIKS = {
           copy: 'Timed past-paper questions identify remaining weaknesses, and lessons loop back with focused repair.'
         }
       ],
-      footerTitle: 'Start with the right Physics tutor.',
+      footerTitle: 'Request a suitable Physics tutor.',
       footerCopy:
         'Share the school, exam session, and weakest topics. We will recommend a suitable tutor.',
       tutorIds: ['ahmad', 'hassan'],
@@ -183,27 +183,27 @@ window.TUTORIKS = {
     },
     'chemistry': {
       kicker: 'Cambridge Curriculum · O/A Level',
-      h1: 'Chemistry tutoring built around the Cambridge syllabus.',
+      h1: 'Cambridge __Chemistry__ tutoring with precision.',
       subheading:
-        'Organic, physical, and inorganic Chemistry taught to CAIE expectations, with consistent reference to mark schemes and examiner reports.',
+        'Organic, physical, and inorganic Chemistry taught with attention to CAIE wording, calculation method, and paper expectations.',
       area: 'Karachi',
       subject: 'O/A Level Chemistry',
       level: 'A Level',
       cta: 'Talk to a Tutor',
-      formTitle: 'Match me with a Chemistry tutor',
-      formCta: 'Match',
-      bullets: ['Examiner-report insights applied in lessons', 'Organic, Physical & Inorganic, full syllabus', 'Parent update after every session'],
-      matchTitle: 'Recommendations based on subject fit, not availability.',
+      formTitle: 'Request a Chemistry tutor',
+      formCta: 'Request match',
+      bullets: ['Examiner-report insights applied carefully', 'Organic, physical, and inorganic syllabus coverage', 'Parent update after every session'],
+      matchTitle: 'Matched for syllabus fit.',
       matchCopy:
-        'A Level Chemistry requires precision. We assess whether the issue is conceptual gaps, mechanism logic, calculation method, or paper timing before recommending a tutor.',
+        'Chemistry requires precision. We assess whether the issue is conceptual gaps, mechanism logic, calculation method, or paper timing before recommending a tutor.',
       signals: [
         'Organic mechanisms practised to fluency',
-        'Moles, equilibria, and kinetics drilled with structure',
-        'CAIE wording trained into definitions and explanations'
+        'Moles, equilibria, and kinetics practised with structure',
+        'CAIE wording practised in definitions and explanations'
       ],
       methodTitle: 'Structured preparation, topic by topic.',
       methodIntro:
-        'The strongest students do not guess what the examiner wants. They have been trained to recognise it.',
+        'Strong students learn how Chemistry marks are awarded, not only how topics are explained.',
       method: [
         {
           title: 'Identify the weak papers',
@@ -218,7 +218,7 @@ window.TUTORIKS = {
           copy: 'Answers are checked against official wording so students learn exactly where marks are awarded and lost.'
         }
       ],
-      footerTitle: 'Start with the right Chemistry tutor.',
+      footerTitle: 'Request a suitable Chemistry tutor.',
       footerCopy:
         'Share the syllabus stage, latest grade, and weakest topics. We will recommend a suitable tutor.',
       tutorIds: ['sara', 'zainab'],
@@ -237,7 +237,7 @@ window.TUTORIKS = {
           area: 'DHA Phase 4',
           subject: 'O/A Level Chemistry',
           quote:
-            'Past-paper marking was strict but fair — exactly what CAIE examiners expect.'
+            'Past-paper marking was strict but fair, exactly what CAIE examiners expect.'
         },
         {
           name: 'Adil',
@@ -250,23 +250,23 @@ window.TUTORIKS = {
     },
     'mathematics': {
       kicker: 'Cambridge Curriculum · O/A Level',
-      h1: 'Structured __Maths__ support for Cambridge students.',
+      h1: 'Cambridge __Maths__ tutoring with clear method.',
       subheading:
-        'Clear methods, consistent practice, and exam technique — taught by tutors who understand how CAIE papers are marked.',
+        'Clear methods, consistent practice, and exam technique from tutors who understand how CAIE Maths papers are marked.',
       area: 'Karachi',
       subject: 'O/A Level Maths',
       level: 'O Level',
       cta: 'Talk to a Tutor',
-      formTitle: 'Match me with a Maths tutor',
-      formCta: 'Match',
-      bullets: ['Pure, Applied & Statistics — all components', 'Method marks prioritised alongside accuracy', 'Parent update after every session'],
-      matchTitle: 'Recommendations based on subject fit, not availability.',
+      formTitle: 'Request a Maths tutor',
+      formCta: 'Request match',
+      bullets: ['Pure, applied, and statistics components', 'Method marks treated as seriously as accuracy', 'Parent update after every session'],
+      matchTitle: 'Matched for syllabus fit.',
       matchCopy:
         'We assess whether the issue is foundational gaps, question interpretation, working-out presentation, or exam-hall speed before recommending a Maths tutor.',
       signals: [
         'Topic-by-topic weakness assessment',
         'Exam-style practice from the first session',
-        'Structured homework rather than generic worksheets'
+        'Focused homework rather than generic worksheets'
       ],
       methodTitle: 'Foundations, patterns, then speed.',
       methodIntro:
@@ -285,7 +285,7 @@ window.TUTORIKS = {
           copy: 'Timed practice gradually improves accuracy and pacing without overwhelming the student.'
         }
       ],
-      footerTitle: 'Start with the right Maths tutor.',
+      footerTitle: 'Request a suitable Maths tutor.',
       footerCopy:
         'Share the current grade and most difficult topics. We will recommend a suitable tutor.',
       tutorIds: ['omar', 'ahmad'],
@@ -317,17 +317,17 @@ window.TUTORIKS = {
     },
     'cs': {
       kicker: 'Cambridge Curriculum · O/A Level',
-      h1: 'Structured __Computer Science__ support for Cambridge students.',
+      h1: 'Cambridge __Computer Science__ tutoring.',
       subheading:
-        'Theory, algorithms, and programming — prepared to the standard CAIE examiners expect.',
+        'Theory, algorithms, pseudocode, and programming prepared to the standard CAIE examiners expect.',
       area: 'Karachi',
       subject: 'O/A Level Computer Science',
       level: 'A Level',
       cta: 'Talk to a Tutor',
-      formTitle: 'Match me with a CS tutor',
-      formCta: 'Match',
+      formTitle: 'Request a CS tutor',
+      formCta: 'Request match',
       bullets: ['9618 and 2210 syllabus coverage', 'Theory and coding technique combined', 'Parent update after every session'],
-      matchTitle: 'Recommendations based on subject fit, not availability.',
+      matchTitle: 'Matched for syllabus fit.',
       matchCopy:
         'Computer Science requires both teaching ability and technical judgement. We recommend tutors who understand the syllabus and can diagnose weak reasoning in both theory answers and code.',
       signals: [
@@ -352,7 +352,7 @@ window.TUTORIKS = {
           copy: 'Programming sessions focus on readable logic, debugging habits, and exam-style tasks.'
         }
       ],
-      footerTitle: 'Start with the right CS tutor.',
+      footerTitle: 'Request a suitable CS tutor.',
       footerCopy:
         'Share the paper, programming language, and weak topics. We will recommend a suitable tutor.',
       tutorIds: ['fatima'],
@@ -364,7 +364,7 @@ window.TUTORIKS = {
           area: 'DHA Phase 5',
           subject: 'O/A Level CS',
           quote:
-            'Paper 3 programming preparation was thorough — pseudocode and Python both covered properly.'
+            'Paper 3 programming preparation was thorough. Pseudocode and Python were both covered properly.'
         },
         {
           name: 'Saima',

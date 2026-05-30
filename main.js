@@ -277,7 +277,7 @@
       var subject = subjects.length ? subjects.join(', ') : fd.get('subject') || lp.subject || '';
       var area = areas.length ? areas.join(', ') : fd.get('service_area') || fd.get('area') || lp.area || '';
       var msg = lp.waPrefill || C.waHome;
-      msg += '\n\nI am looking for a premium ' + level + ' ' + subject + ' tutor for ' + area + ' home visits.';
+      msg += '\n\nI am looking for a ' + level + ' ' + subject + ' tutor for ' + area + ' home visits.';
       if (name) msg += '\nName: ' + name;
       if (phone) msg += '\nPhone: ' + phone;
       window.location.href = buildWaUrl(msg);
@@ -309,9 +309,9 @@
           return '<span>' + escapeHtml(part) + '</span>';
         }).join('<span>·</span>');
       }
-      if (h1 && lp.h1) h1.innerHTML = escapeHtml(lp.h1).replace(/__(.+?)__/g, '<span style="color:var(--teal)">$1</span>');
+      if (h1 && lp.h1) h1.innerHTML = escapeHtml(lp.h1).replace(/__(.+?)__/g, '<span class="lp-subject-mark">$1</span>');
       if (lede && lp.subheading) lede.textContent = lp.subheading;
-      if (heroBtn) heroBtn.textContent = lp.cta || 'Book a 15-minute tutor audit';
+      if (heroBtn) heroBtn.textContent = lp.cta || 'Talk to a Tutor';
       if (trust && lp.bullets) {
         trust.innerHTML = lp.bullets
           .map(function (item) {
@@ -336,7 +336,7 @@
     if (form) {
       var formTitle = form.querySelector('h2');
       var submit = form.querySelector('button[type="submit"]');
-      if (formTitle) formTitle.textContent = lp.formTitle || 'Match me with a tutor';
+      if (formTitle) formTitle.textContent = lp.formTitle || 'Request a tutor';
       if (submit) submit.textContent = lp.formCta || 'Match';
 
       var matchSection = form.closest('.lp-match');
@@ -347,8 +347,8 @@
           var descs = matchCopy.querySelectorAll('p:not(.eyebrow)');
           var desc = descs.length > 0 ? descs[descs.length - 1] : null;
           var signalList = matchCopy.querySelector('.lp-signal-list');
-          if (heading) heading.textContent = lp.matchTitle || 'A tutor selected, not assigned';
-          if (desc) desc.textContent = lp.matchCopy || 'We look at the syllabus, weak chapters, school pace, and exam board before matching your child with an expert.';
+          if (heading) heading.textContent = lp.matchTitle || 'Matched for syllabus fit.';
+          if (desc) desc.textContent = lp.matchCopy || 'We look at the syllabus, weak topics, school pace, and exam board before recommending a tutor.';
           if (signalList && lp.signals) {
             signalList.innerHTML = lp.signals.map(function (item) {
               return '<span>' + escapeHtml(item) + '</span>';
@@ -376,8 +376,8 @@
       var html =
         '<section class="lp-method">' +
         '<div class="lp-method-inner">' +
-        '<h2>' + escapeHtml(lp.methodTitle || 'A smarter route to exam confidence') + '</h2>' +
-        '<p>' + escapeHtml(lp.methodIntro || 'Premium home tutoring should feel structured, measurable, and calm. No vague worksheets. No random tutor lottery.') + '</p>' +
+        '<h2>' + escapeHtml(lp.methodTitle || 'Structured academic support.') + '</h2>' +
+        '<p>' + escapeHtml(lp.methodIntro || 'Lessons should be clear, consistent, and tied to the way Cambridge papers are assessed.') + '</p>' +
         '<div class="lp-method-grid">' +
         method
           .map(function (item, i) {
@@ -404,8 +404,8 @@
       var actions = footer.querySelector('.hero-actions');
       footer.innerHTML =
         '<div class="lp-footer-inner">' +
-        '<h2>' + escapeHtml(lp.footerTitle || 'Start with the right tutor') + '</h2>' +
-        '<p>' + escapeHtml(lp.footerCopy || 'Send us the subject, class, school, and weak chapters. We will recommend the right next step.') + '</p>' +
+        '<h2>' + escapeHtml(lp.footerTitle || 'Request a suitable tutor.') + '</h2>' +
+        '<p>' + escapeHtml(lp.footerCopy || 'Send us the subject, class, school, and weak topics. We will recommend a suitable next step.') + '</p>' +
         '</div>';
       if (actions) footer.querySelector('.lp-footer-inner').appendChild(actions);
     }
@@ -855,12 +855,12 @@
         subjectStr = subject;
       }
 
-      var text = 'I am looking for a premium ' + level + ' ' + subjectStr + ' tutor for ' + modeStr + '.';
+      var text = 'I am looking for a ' + level + ' ' + subjectStr + ' tutor for ' + modeStr + '.';
       if (summaryEl) {
-        summaryEl.innerHTML = 'I am looking for a premium <strong>' + level + '</strong> <strong>' + subjectStr + '</strong> tutor for <strong>' + modeStr + '</strong>.';
+        summaryEl.innerHTML = 'I am looking for a <strong>' + level + '</strong> <strong>' + subjectStr + '</strong> tutor for <strong>' + modeStr + '</strong>.';
       }
 
-      var prefill = "Hi! " + text + " Please recommend the right checked expert tutor.";
+      var prefill = "Hi. " + text + " Please recommend a suitable Tutoriks tutor.";
       if (submitBtn) {
         submitBtn.href = buildWaUrl(prefill);
       }
