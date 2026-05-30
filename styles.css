@@ -3951,6 +3951,19 @@ h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.125rem; }
   .nav-toggle-label { display: none; }
   .nav-right { margin-left: auto; gap: 8px; }
   .nav-right .btn-wa-icon .btn-label { display: none; }
+  .site-header .btn-wa-green,
+  .site-header .btn-pill-white {
+    padding: 8px 14px;
+    min-height: 38px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .site-header .nav-phone-pill {
+    margin-left: auto;
+  }
+  .site-header nav {
+    gap: 10px;
+  }
 
   h1.display {
     font-size: 2.62rem;
