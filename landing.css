@@ -81,8 +81,23 @@ body.lp::before {
 .lp-header .nav-links {
   display: none;
 }
+/* Mobile hamburger dropdown */
 .lp-header .nav-links.open {
   display: flex !important;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(250, 252, 255, 0.97);
+  padding: 12px;
+  border: 1px solid rgba(232, 85, 32, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 16px 44px rgba(7, 24, 42, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 200;
 }
 
 /* ── LP HEADER – desktop only (≥ 769px): mirror main page exactly ─── */
@@ -91,9 +106,13 @@ body.lp::before {
     padding: 10px 12px 10px 18px;
     min-height: 74px;
     gap: 16px;
+    /* Switch from space-between (which centers the middle child)
+       to flex-start so nav-links + nav-right group together on the right */
+    justify-content: flex-start;
   }
 
-  /* Show nav links exactly like the main page — centered via auto margins */
+  /* Nav links: margin-left:auto pushes it (and nav-right) to the far right,
+     matching how main page groups [nav-links · phone · wa] on the right */
   .lp-header .nav-links {
     display: flex;
     align-items: center;
@@ -101,9 +120,8 @@ body.lp::before {
     padding: 4px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.55);
-    /* auto margins on both sides → true center between logo and nav-right */
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
   }
   .lp-header .nav-links a {
     font-size: 0.875rem;
@@ -119,7 +137,6 @@ body.lp::before {
     background: rgba(232, 85, 32, 0.12);
   }
 
-  /* nav-right: no margin-left:auto — nav-links auto margins handle centering */
   .lp-header .nav-right {
     display: flex;
     align-items: center;
@@ -127,12 +144,9 @@ body.lp::before {
     flex-shrink: 0;
   }
 
-  /* Phone pill: remove the mobile margin-left:auto since nav-right handles alignment */
   .lp-header .nav-phone-pill {
     margin-left: 0;
   }
-
-
 
   /* Hide hamburger toggle on desktop */
   .lp-header .nav-toggle {
