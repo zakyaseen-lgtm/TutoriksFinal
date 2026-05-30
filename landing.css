@@ -969,7 +969,7 @@ body.lp .t-card::before {
     width: 16px;
     height: 16px;
   }
-  .lp-header .nav-phone-pill {
+  .nav-right .btn-wa-icon .btn-label {
     display: none;
   }
 

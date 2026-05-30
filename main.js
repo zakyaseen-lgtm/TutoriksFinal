@@ -277,7 +277,7 @@
       var subject = subjects.length ? subjects.join(', ') : fd.get('subject') || lp.subject || '';
       var area = areas.length ? areas.join(', ') : fd.get('service_area') || fd.get('area') || lp.area || '';
       var msg = lp.waPrefill || C.waHome;
-      msg += '\n\nI am looking for an ' + level + ' ' + subject + ' tutor for ' + area + ' home visits.';
+      msg += '\n\nI am looking for a premium ' + level + ' ' + subject + ' tutor for ' + area + ' home visits.';
       if (name) msg += '\nName: ' + name;
       if (phone) msg += '\nPhone: ' + phone;
       window.location.href = buildWaUrl(msg);
@@ -855,12 +855,12 @@
         subjectStr = subject;
       }
 
-      var text = 'I am looking for an ' + level + ' ' + subjectStr + ' tutor for ' + modeStr + '.';
+      var text = 'I am looking for a premium ' + level + ' ' + subjectStr + ' tutor for ' + modeStr + '.';
       if (summaryEl) {
-        summaryEl.innerHTML = 'I am looking for an <strong>' + level + '</strong> <strong>' + subjectStr + '</strong> tutor for <strong>' + modeStr + '</strong>.';
+        summaryEl.innerHTML = 'I am looking for a premium <strong>' + level + '</strong> <strong>' + subjectStr + '</strong> tutor for <strong>' + modeStr + '</strong>.';
       }
 
-      var prefill = "Hi! " + text + " Please recommend a suitable tutor.";
+      var prefill = "Hi! " + text + " Please recommend the right checked expert tutor.";
       if (submitBtn) {
         submitBtn.href = buildWaUrl(prefill);
       }
